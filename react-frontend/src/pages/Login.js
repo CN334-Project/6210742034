@@ -11,6 +11,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import axios from "axios";
 import { useState } from "react";
 
 import { useSelector } from "react-redux";
@@ -40,14 +41,17 @@ export default function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      username: data.get("username"),
-      password: data.get("password"),
-    });
+  const handleLogin = () => {
+
+    axios.post("http://127.0.0.1:8000/api/login", {
+      username: username,
+      password: password
+    }).then(res => {
+      console.log('res: ',res);
+    }).catch(err => {
+      console.error('err: ', err);
+    })
+
   };
 
   const navigate = useNavigate();
@@ -64,8 +68,9 @@ export default function SignIn() {
       body: JSON.stringify(item),
     });
     res = await res.json();
+    
     localStorage.setItem("user-info",JSON.stringify(res))
-    navigate('/dasshboard');
+    navigate('/dashboard');
     
 
   }
@@ -88,7 +93,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={login} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -116,7 +121,7 @@ export default function SignIn() {
               label="Remember me"
             />
             <Button
-              onClick={login}
+              onClick={handleLogin}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}

@@ -6,27 +6,52 @@ import Education from "./pages/Education";
 import ResponsiveAppBar from "./components/Navbar";
 import SignIn from "./pages/Login";
 import HomePage from "./pages/HomePage";
-import Dashboardpage from "./pages/DashboardPage";
+import DashboardPage from "./pages/Dashboard/DashboardPage";
 
 function App() {
   return (
+    <>
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<Home />} />
+      <Route path="login/*" element={<Login />} />
       <Route path="dashboard/*" element={<Dashboard />} />
     </Routes>
+    </>
+    
+  );
+}
+
+function Home() {
+  return (
+    <div>
+      <ResponsiveAppBar/>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </div>
+  );
+}
+
+function Login() {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+      </Routes>
+    </div>
   );
 }
 
 function Dashboard() {
   return (
     <div>
-      <p>Look, more routes!</p>
       <Routes>
-        <Route path="/" element={<Dashboardpage />} />
-        <Route path="login" element={<SignIn />} />
+        <Route path="/" element={<DashboardPage />} />
       </Routes>
     </div>
   );
 }
+
+
 
 export default App;
