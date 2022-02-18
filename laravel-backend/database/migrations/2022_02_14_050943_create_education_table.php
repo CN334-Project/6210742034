@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('university_name');
             $table->string('department_name');
-            $table->float('GPA');
+            $table->string('GPA');
             $table->string('faculty');
-            $table->integer('startyear');
-            $table->integer('endyear');
+            $table->string('startyear');
+            $table->string('endyear');
             $table->timestamps();
         });
     }

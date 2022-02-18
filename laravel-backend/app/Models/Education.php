@@ -17,4 +17,5 @@ class Education extends Model
         'startyear',
         'endyear'
     ];
+    public $timestamps = false;
 }

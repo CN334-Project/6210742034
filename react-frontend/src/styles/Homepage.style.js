@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderContianer = styled.div`
-  text-align: center;
   width: auto;
   height: ${(props) => props.hg};
   padding: 5rem;

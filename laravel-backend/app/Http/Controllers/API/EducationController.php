@@ -16,6 +16,7 @@ class EducationController extends Controller
     public function index()
     {
         //
+        return response()->json(['data' => Education::all()]);
     }
 
     /**
@@ -52,6 +53,8 @@ class EducationController extends Controller
     public function show($id)
     {
         //
+        $education = Education::find($id);
+        return response()->json(['name' => 'show', 'id' => $id, 'education' => $education]);
     }
 
     /**

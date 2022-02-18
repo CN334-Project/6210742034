@@ -1,17 +1,18 @@
 import React from "react";
 import SideBar from "../../components/SideBar";
+import { DashboardContainer } from "../../styles/Dashboard.style";
 import { Container, Grid } from "../../styles/Homepage.style";
 
 
 export default function DashboardPage() {
   return (
-    <div>
-      <Grid>
-        <SideBar />
+    <DashboardContainer>
+
+        
         <Container>
           <div>Welcome TO Dashboard</div>
         </Container>
-      </Grid>
-    </div>
+
+    </DashboardContainer>
   );
 }
