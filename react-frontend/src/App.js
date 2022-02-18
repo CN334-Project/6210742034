@@ -7,6 +7,7 @@ import ResponsiveAppBar from "./components/Navbar";
 import SignIn from "./pages/Login";
 import HomePage from "./pages/HomePage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
+import SideBar from "./components/SideBar";
 
 function App() {
   return (

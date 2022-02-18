@@ -33,6 +33,7 @@ export const Container = styled.div`
   height: auto;
   text-align: ${(props) => props.textAlign};
   position: relative;
+  margin: ${(props) => props.margin};
 `;
 
 export const Paragraph = styled.p`
