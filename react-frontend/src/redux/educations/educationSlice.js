@@ -28,9 +28,9 @@ export const updateEducations = createAsyncThunk(
 
 export const deleteEducations = createAsyncThunk(
   "educations/deleteEducations",
-  async (id) => {
-    const response = await PortfolioService.remove(id);
-    return id;
+  async ({id}) => {
+    await PortfolioService.remove(id);
+    return {id};
   }
 );
 
@@ -41,14 +41,6 @@ const initialState = {
 const educationSlice = createSlice({
   name: "educations",
   initialState,
-  reducers: {
-    // addEducations: (state, { payload }) => {
-    //   state.educations = payload;
-    //   portfolioApi.post("/addEducations", payload).then((res) => {
-    //     console.log("Res: ", res);
-    //   });
-    // },
-  },
   extraReducers: {
     [fetchAsyncEducations.fulfilled]: (state, { payload }) => {
       console.log("Fetch Success");
@@ -72,7 +64,12 @@ const educationSlice = createSlice({
     },
     [deleteEducations.fulfilled]: (state, { payload }) => {
       console.log("Delete Success");
-      return { ...state, educations: payload };
+      try {
+        let index = state.findIndex(({ id }) => id === payload.id);
+        state.splice(index, 1);
+      } catch (error) {
+        
+      }
     },
   },
 });

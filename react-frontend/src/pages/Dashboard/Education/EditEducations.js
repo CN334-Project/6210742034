@@ -7,6 +7,7 @@ import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {
   addEducations,
+  deleteEducations,
   updateEducations,
 } from "../../../redux/educations/educationSlice";
 import PortfolioService from "../../../api/portfolioServices";
@@ -49,9 +50,8 @@ const EditEducation = () => {
     setCurrentEducation({ ...currentEducation, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
-    console.log(currentEducation);
     if (
       !university_name ||
       !department_name ||
@@ -68,6 +68,10 @@ const EditEducation = () => {
 
     }
   };
+
+  const handleDelete = () => {
+      dispatch(deleteEducations({id: currentEducation.id}))
+  }
 
   return (
     <DashboardContainer hg="100vh">
@@ -125,7 +129,8 @@ const EditEducation = () => {
               onChange={handleInputChange}
             />
           </form>
-          <button onClick={handleSubmit}>Update</button>
+          <button onClick={handleUpdate}>Update</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </HeaderDashboardContianer>
     </DashboardContainer>

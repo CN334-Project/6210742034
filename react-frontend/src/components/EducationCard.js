@@ -6,14 +6,11 @@ import { deleteEducations, updateEducations } from '../redux/educations/educatio
 
 const EducationCard = (props) =>{
     const {data} = props;
+
     const dispatch = useDispatch();
 
     const handleEdit = (id) => {
       dispatch(updateEducations())
-    }
-
-    const handleDelete = (id) => {
-      dispatch(deleteEducations(id))
     }
 
   return (
@@ -26,7 +23,6 @@ const EducationCard = (props) =>{
         <h1 id="endyear">{data.endyear}</h1>
         <h1 id="GPA">{data.GPA}</h1>
       </div>
-      <button>Delete</button>
       <button><Link to={`/dashboard/editEducation/${data.id}`}>Edit</Link></button>
         
     </div>
