@@ -51,7 +51,7 @@ class EducationController extends Controller
     {
         //
         $education = Education::find($id);
-        return response()->json(['name' => 'show', 'id' => $id, 'education' => $education]);
+        return response()->json($education);
     }
 
     /**
@@ -64,6 +64,16 @@ class EducationController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $education = Education::find($id);
+
+        $education->university_name = $request->university_name;
+        $education->department_name = $request->department_name;
+        $education->GPA = $request->GPA;
+        $education->faculty = $request->faculty;
+        $education->startyear = $request->startyear;
+        $education->endyear = $request->endyear;
+
+        return response()->json(['name' => 'update', 'status' => $education->save(),  'payload' => $request->all(), 'id' => $id]);
     }
 
     /**
@@ -75,5 +85,7 @@ class EducationController extends Controller
     public function destroy($id)
     {
         //
+        $education = Education::find($id);
+        return response()->json(['name' => 'destroy', 'status' => $education->delete(), 'id' => $id]);
     }
 }

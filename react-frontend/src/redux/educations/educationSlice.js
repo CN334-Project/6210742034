@@ -12,25 +12,25 @@ export const fetchAsyncEducations = createAsyncThunk(
 
 export const addEducations = createAsyncThunk(
   "educations/addEducations",
-  async ({data}) => {
+  async (data) => {
     const response = await PortfolioService.create(data);
-    return response.data;
+    return data;
   }
 );
 
 export const updateEducations = createAsyncThunk(
   "educations/updateEducations",
-  async ({id,data}) => {
-    const response = await PortfolioService.update(data);
+  async ({ id, data }) => {
+    const response = await PortfolioService.update(id, data);
     return response.data;
   }
 );
 
 export const deleteEducations = createAsyncThunk(
   "educations/deleteEducations",
-  async ({id}) => {
-    const response = await PortfolioService.remove({id});
-    return {id};
+  async (id) => {
+    const response = await PortfolioService.remove(id);
+    return id;
   }
 );
 
@@ -56,15 +56,23 @@ const educationSlice = createSlice({
     },
     [addEducations.fulfilled]: (state, { payload }) => {
       console.log("Add Success");
-      return { ...state, educations: payload.data };
+      return { ...state, educations: payload };
     },
     [updateEducations.fulfilled]: (state, { payload }) => {
       console.log("Update Success");
-      return { ...state, educations: payload.data };
+      try {
+        const index = state.findIndex(
+          (education) => education.id === payload.id
+        );
+        state[index] = {
+          ...state[index],
+          ...payload,
+        };
+      } catch (error) {}
     },
     [deleteEducations.fulfilled]: (state, { payload }) => {
       console.log("Delete Success");
-      return { ...state, educations: payload.data };
+      return { ...state, educations: payload };
     },
   },
 });

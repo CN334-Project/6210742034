@@ -1,8 +1,20 @@
 import React from 'react'
 import CardStyle from "../styles/CardStyle.scss"
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteEducations, updateEducations } from '../redux/educations/educationSlice';
 
 const EducationCard = (props) =>{
     const {data} = props;
+    const dispatch = useDispatch();
+
+    const handleEdit = (id) => {
+      dispatch(updateEducations())
+    }
+
+    const handleDelete = (id) => {
+      dispatch(deleteEducations(id))
+    }
 
   return (
     <div className='card-item'>
@@ -14,8 +26,8 @@ const EducationCard = (props) =>{
         <h1 id="endyear">{data.endyear}</h1>
         <h1 id="GPA">{data.GPA}</h1>
       </div>
-      <button>Edit</button>
       <button>Delete</button>
+      <button><Link to={`/dashboard/editEducation/${data.id}`}>Edit</Link></button>
         
     </div>
   )

@@ -13,18 +13,16 @@ import DashboardPage from "./pages/Dashboard/DashboardPage";
 import SideBar from "./components/SideBar";
 import HeaderEdit from "./pages/Dashboard/HeaderEdit";
 import Layout from "./pages/Dashboard/Layout";
-import EducationCRUD from "./pages/Dashboard/EducationCRUD";
+import EducationCRUD from "./pages/Dashboard/Education/EducationCRUD";
 
 import { useDispatch } from "react-redux";
 import {fetchAsyncEducations} from "./redux/educations/educationSlice"
+import AddEducation from "./pages/Dashboard/Education/AddEducation";
+import EditEducations from "./pages/Dashboard/Education/EditEducations";
 
 
 function App() {
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchAsyncEducations());
-  }, [dispatch]);
   return (
     <>
       <Router>
@@ -65,7 +63,8 @@ function Dashboard() {
       <Routes>
         <Route path="/" exact element={<DashboardPage />} />
         <Route path="/header" element={<HeaderEdit />} />
-        <Route path="/education" element={<EducationCRUD />} />
+        <Route path="/addEducation" element={<AddEducation />} />
+        <Route path="/editEducation/:id" element={<EditEducations />} />
       </Routes>
       <SideBar />
     </div>

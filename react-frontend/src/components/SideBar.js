@@ -40,6 +40,9 @@ export default function SideBar() {
               <MenuItem><Link to={'/dashboard/header'}>Header</Link></MenuItem>
               <MenuItem><Link to={'/dashboard/education'}>Education</Link></MenuItem>
             </SubMenu>
+            <SubMenu title="Education">
+              <MenuItem><Link to={'/dashboard/addEducation'}>Add Education</Link></MenuItem>
+            </SubMenu>
           </Menu>
         </SidebarContent>
 
