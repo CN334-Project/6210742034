@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DashboardContainer = styled.div`
     margin-left: 270px;
     background-color: #222222;
-    height: 100vh;
+    height: auto;
   
 `;
 

@@ -1,0 +1,28 @@
+.card-item {
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid whitesmoke;
+    border-radius: 30px;
+    h1 {
+        color: black;
+    }
+    #university {
+        font-size: 1rem
+    }
+    #faculty {
+        font-size: 1rem
+    }
+    #department {
+        font-size: 1rem
+    }
+    #GPA {
+        font-size: 1rem
+    }
+    #startyear {
+        font-size: 1rem
+    }
+    #endyear {
+        font-size: 1rem
+    }
+}

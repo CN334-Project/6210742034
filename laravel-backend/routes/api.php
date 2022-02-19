@@ -23,5 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [UserController::class,'register']);
 Route::post('login', [UserController::class,'login']);
 
-Route::get('education/{educationid}', [EducationController::class,'show']);
-Route::get('Alleducation', [EducationController::class,'index']);
+// Route::get('education/{educationid}', [EducationController::class,'show']);
+// Route::post('addEducations', [EducationController::class,'store']);
+// Route::get('Alleducation', [EducationController::class,'index']);
+
+Route::resource('educations', 'App\Http\Controllers\API\EducationController');

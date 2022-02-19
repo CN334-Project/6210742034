@@ -16,7 +16,7 @@ class EducationController extends Controller
     public function index()
     {
         //
-        return response()->json(['data' => Education::all()]);
+        return response()->json(['data' => Education::all(), "Response" => "True"]);
     }
 
     /**
@@ -37,10 +37,7 @@ class EducationController extends Controller
         $education->endyear = $request->input('endyear');
         $education->save();
 
-        return response()->json([
-            'status'=> 200,
-            'message'=> 'Education Added Successfully',
-        ]);
+        return response()->json(['data' => $education]);
 
     }
 

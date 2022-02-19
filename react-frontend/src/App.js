@@ -15,7 +15,16 @@ import HeaderEdit from "./pages/Dashboard/HeaderEdit";
 import Layout from "./pages/Dashboard/Layout";
 import EducationCRUD from "./pages/Dashboard/EducationCRUD";
 
+import { useDispatch } from "react-redux";
+import {fetchAsyncEducations} from "./redux/educations/educationSlice"
+
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAsyncEducations());
+  }, [dispatch]);
   return (
     <>
       <Router>

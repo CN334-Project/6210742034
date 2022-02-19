@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   Body,
   Container,
@@ -10,13 +10,21 @@ import {
 import useWindowDimensions from "../components/useWindowDimensions";
 import Education from "./Education";
 import "../styles/Homepage.css"
+import { useDispatch } from "react-redux";
+import { fetchAsyncEducations } from "../redux/educations/educationSlice";
 
 export default function HomePage() {
   const { height, width } = useWindowDimensions();
   const hgc = height + "px";
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAsyncEducations());
+  }, []);
+
   return (
-    <Body height={height + "px"}>
+    <Body height={"auto"}>
       <HeaderContianer>
         <Grid>
           <Container>
