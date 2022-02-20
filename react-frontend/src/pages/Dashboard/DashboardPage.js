@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SideBar from "../../components/SideBar";
 
-import { DashboardContainer } from "../../styles/Dashboard.style";
+import { Body, DashboardContainer } from "../../styles/Dashboard.style";
 import { Container, Grid } from "../../styles/Homepage.style";
 import "../../styles/Dashboard.scss";
 
@@ -15,15 +15,16 @@ export default function DashboardPage() {
     dispatch(fetchAsyncEducations());
   }, [dispatch]);
   return (
-    <DashboardContainer>
-      <div className="DashboardContent">
-        <h1>Welcome To Dashbaord</h1>
+    <Body height="100vh">
+      <DashboardContainer>
+        <div className="dashboard-header">
+          <h1>Welcome To Dashboard</h1>
+        </div>
 
         <div className="education-wrapper">
           <EducationCRUD />
         </div>
-
-      </div>
-    </DashboardContainer>
+      </DashboardContainer>
+    </Body>
   );
 }

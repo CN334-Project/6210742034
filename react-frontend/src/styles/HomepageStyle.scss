@@ -1,12 +1,12 @@
 a.anchor {
-    display: block;
-    position: relative;
-    top: -250px;
-    visibility: hidden;
+  display: block;
+  position: relative;
+  top: -250px;
+  visibility: hidden;
 }
 
 a {
-    color: white;
+  color: white;
 }
 
 .profile-picture {
@@ -23,7 +23,7 @@ a {
 .profile-picture-background {
   height: 92%;
   width: 92%;
-  background-image: url("../assets/image0.jpg");
+  background-image: url("../assets/profile2.jpg");
   background-size: cover;
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -54,4 +54,32 @@ a {
 
 .text-skills {
   padding-top: 2rem;
+}
+
+.animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 3rem;
+  
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }

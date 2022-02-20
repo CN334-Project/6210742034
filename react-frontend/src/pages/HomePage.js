@@ -46,7 +46,7 @@ export default function HomePage() {
               <Text size="1rem" color="#7a7a7a">
                 Software Developer
               </Text>
-              <Text color="#fff">Chanantaphon Chansuksri</Text>
+              <Text color="#fff" className="animate-charcter text-glow">Chanantaphon Chansuksri</Text>
               <Paragraph>
                 Software Engineer Student seeking an entry-level position as a
                 website developer and mobile developer with a passion for

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import {
   HeaderDashboardContianer,
   DashboardContainer,
+  Body
 } from "../../../styles/Dashboard.style";
-import { TextField } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {
   addEducations,
@@ -74,12 +75,20 @@ const EditEducation = () => {
   }
 
   return (
-    <DashboardContainer hg="100vh">
+    <Body>
+      <DashboardContainer hg="100vh">
       <HeaderDashboardContianer>
         <div className="addEducation">
           <h1>Edit Education</h1>
           <h1>{error}</h1>
-          <form>
+          <Box
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { m: 3, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
             <TextField
               id="standard-basic"
               label="University Name"
@@ -128,12 +137,15 @@ const EditEducation = () => {
               type="text"
               onChange={handleInputChange}
             />
-          </form>
-          <button onClick={handleUpdate}>Update</button>
-          <button onClick={handleDelete}>Delete</button>
+          </Box>
+          <button onClick={handleUpdate} className="btn-gradient-border">Update</button>
+          <button onClick={handleDelete} className="btn-gradient-border">Delete</button>
         </div>
       </HeaderDashboardContianer>
     </DashboardContainer>
+
+    </Body>
+    
   );
 };
 

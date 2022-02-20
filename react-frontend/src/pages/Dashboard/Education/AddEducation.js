@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import {
   HeaderDashboardContianer,
   DashboardContainer,
+  Body,
 } from "../../../styles/Dashboard.style";
-import { TextField } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addEducations } from "../../../redux/educations/educationSlice";
 
@@ -45,64 +46,77 @@ export default function AddEducation() {
   };
 
   return (
-    <DashboardContainer hg="100vh">
-      <HeaderDashboardContianer>
-        <div className="addEducation">
-          <h1>Add Education</h1>
-          <h1>{error}</h1>
-          <form>
-            <TextField
-              id="standard-basic"
-              label="University Name"
-              name="university_name"
-              value={university_name}
-              type="text"
-              onChange={handleInputChange}
-            />
-            <TextField
-              id="standard-basic"
-              label="department_name"
-              name="department_name"
-              value={department_name}
-              type="text"
-              onChange={handleInputChange}
-            />
-            <TextField
-              id="standard-basic"
-              label="GPA"
-              name="GPA"
-              value={GPA}
-              type="text"
-              onChange={handleInputChange}
-            />
-            <TextField
-              id="standard-basic"
-              label="faculty"
-              name="faculty"
-              value={faculty}
-              type="text"
-              onChange={handleInputChange}
-            />
-            <TextField
-              id="standard-basic"
-              label="startyear"
-              name="startyear"
-              value={startyear}
-              type="text"
-              onChange={handleInputChange}
-            />
-            <TextField
-              id="standard-basic"
-              label="endyear"
-              name="endyear"
-              value={endyear}
-              type="text"
-              onChange={handleInputChange}
-            />
-          </form>
-          <button onClick={handleSubmit}>add</button>
-        </div>
-      </HeaderDashboardContianer>
-    </DashboardContainer>
+    <Body height="100vh">
+      <DashboardContainer hg="100vh">
+        <HeaderDashboardContianer>
+          <div className="addEducation">
+            <h1>Add Education</h1>
+            <h1>{error}</h1>
+            <Box
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { m: 3, width: "25ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="outlined-textarea"
+                label="University Name"
+                name="university_name"
+                value={university_name}
+                type="text"
+                onChange={handleInputChange}
+              />
+              <TextField
+                id="standard-basic"
+                label="department_name"
+                name="department_name"
+                value={department_name}
+                type="text"
+                onChange={handleInputChange}
+              />
+              <TextField
+                id="standard-basic"
+                label="GPA"
+                name="GPA"
+                value={GPA}
+                type="text"
+                onChange={handleInputChange}
+              />
+              <TextField
+                id="standard-basic"
+                label="faculty"
+                name="faculty"
+                value={faculty}
+                type="text"
+                onChange={handleInputChange}
+              />
+              <TextField
+                id="standard-basic"
+                label="startyear"
+                name="startyear"
+                value={startyear}
+                type="text"
+                onChange={handleInputChange}
+              />
+              <TextField
+                id="standard-basic"
+                label="endyear"
+                name="endyear"
+                value={endyear}
+                type="text"
+                onChange={handleInputChange}
+              />
+            </Box>
+            
+              <button onClick={handleSubmit} className="btn-gradient-border">
+                Add
+              </button>
+            
+          </div>
+        </HeaderDashboardContianer>
+      </DashboardContainer>
+    </Body>
   );
 }

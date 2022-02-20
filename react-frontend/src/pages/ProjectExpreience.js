@@ -12,7 +12,7 @@ const ProjectExpreience = () => {
           <h2>Project Expreience</h2>
         </div>
         <Grid columns="1fr 1fr 1fr 1fr">
-          <div className="cards bg-blurs">
+          <div className="cards">
             <div className="cards-media">
               <img
                 width={250}
@@ -29,7 +29,7 @@ const ProjectExpreience = () => {
             </Grid>
           </div>
 
-          <div className="cards bg-blurs">
+          <div className="cards">
             <div className="cards-media">
               <img
                 width={250}
@@ -65,7 +65,7 @@ const ProjectExpreience = () => {
             </Grid>
           </div>
 
-          <div className="cards bg-blurs">
+          <div className="cards">
             <div className="cards-media">
               <img
                 width={250}
@@ -78,7 +78,7 @@ const ProjectExpreience = () => {
               <h1>Face Recognition Website</h1>
             </div>
             <Grid columns="1fr 1fr">
-              <button className="button button2" onClick={window.open("https://github.com/Manusea/AIFaceRecognition-Website")}>Github</button>
+              <button className="button button2">Github</button>
               <button className="button button2">View More</button>
             </Grid>
           </div>

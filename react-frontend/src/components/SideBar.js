@@ -36,10 +36,6 @@ export default function SideBar() {
         <SidebarContent>
           <Menu iconShape="round">
             <MenuItem><Link to={'/dashboard'}>Dashboard</Link></MenuItem>
-            <SubMenu title="Home">
-              <MenuItem><Link to={'/dashboard/header'}>Header</Link></MenuItem>
-              <MenuItem><Link to={'/dashboard/education'}>Education</Link></MenuItem>
-            </SubMenu>
             <SubMenu title="Education">
               <MenuItem><Link to={'/dashboard/addEducation'}>Add Education</Link></MenuItem>
             </SubMenu>

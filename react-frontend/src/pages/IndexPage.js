@@ -15,7 +15,7 @@ const IndexPage = () => {
           <h2 style={{justifyContent:'center'}}>I'm a </h2>
           <h2>Software Enginner Student</h2>
         </div>
-        <button className="btn-index btn-gradient-border">View My Work</button>
+        <button className="btn-index btn-gradient-border"><a href="#About" className="text-white">View My Project</a></button>
       </div>
     </div>
   );

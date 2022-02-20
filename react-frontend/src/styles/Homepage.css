@@ -53,3 +53,25 @@ a {
   color: white;
   text-decoration: none !important;
 }
+
+.text-glow {
+  text-shadow: 0 0 20px rgb(192 219 255 / 10%), 0 0 32px rgb(65 120 255 / 5%);
+}
+
+.waviy {
+  position: relative;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}

@@ -14,8 +14,19 @@
     height: 100vh;
     h1 {
         color: white;
+        text-align: center;
     }
 }
+
+.dashboard-header {
+    padding-bottom: 4rem;
+    h1 {
+        font-size: 4rem;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
 .education-wrapper {
     h1 {
         color: black;

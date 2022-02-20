@@ -29,8 +29,7 @@ const EducationCRUD = () => {
 
   return (
     <div>
-      <h1 style={{ color: "white" }}>Educations</h1>
-      <button>add</button>
+      <h1 style={{ color: "white", textAlign: "center", padding: "2rem" }}>Education</h1>
       <div className="education-container">{renderEducations}</div>
     </div>
   );

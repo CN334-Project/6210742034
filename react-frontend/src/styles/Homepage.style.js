@@ -43,7 +43,7 @@ export const Paragraph = styled.p`
   color: #fff;
   text-align: start;
   padding-top:.5rem;
-  font-size: .9rem;
+  font-size: 1rem;
 `;
 
 export const Body = styled.div`
