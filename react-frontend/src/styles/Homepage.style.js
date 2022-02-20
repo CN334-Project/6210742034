@@ -4,6 +4,7 @@ export const HeaderContianer = styled.div`
   width: auto;
   height: ${(props) => props.hg};
   padding: 5rem;
+  padding-bottom: ${(props) => props.pb};
 `;
 
 export const Text = styled.h1`
@@ -15,8 +16,9 @@ export const Text = styled.h1`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
+  grid-template-columns: ${(props) => props.columns};
+  align-items: center;
+  grid-gap: ${(props) => props.gap};
 `;
 
 export const Image = styled.img`
@@ -27,12 +29,14 @@ export const Image = styled.img`
 `;
 
 export const Container = styled.div`
-  padding: 1rem;
   width: auto;
   height: auto;
   text-align: ${(props) => props.textAlign};
   position: relative;
   margin: ${(props) => props.margin};
+  padding-left: ${(props) => props.pd};
+  align-items: center;
+  align-self: center;
 `;
 
 export const Paragraph = styled.p`
@@ -44,6 +48,7 @@ export const Paragraph = styled.p`
 
 export const Body = styled.div`
   height: ${(props) => props.height};
-  background-color: #222222;
+  background-color: #14141f;
   font-family: "Prompt";
 `;
+

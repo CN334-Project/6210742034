@@ -5,6 +5,7 @@ import "../styles/Homepage.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllEducations } from "../redux/educations/educationSlice";
 import EducationCard from "../components/EducationCard";
+import HomeEducationCard from "../components/HomeEducationCard";
 
 export default function Education() {
   const educations = useSelector(getAllEducations);
@@ -12,15 +13,17 @@ export default function Education() {
   let renderEducations =
     educations.Response === "True"
       ? educations.data.map((items, index) => (
-          <EducationCard key={index} data={items} />
+          <HomeEducationCard key={index} data={items} />
         ))
       : null;
   return (
     <div className="education">
       <HeaderContianer>
-        <h1>Education</h1>
-        <div>
-          <div className="education-container">{renderEducations}</div>
+        <div className="education-content">
+          <h2>Education</h2>
+          <div>
+            <div className="education-container">{renderEducations}</div>
+          </div>
         </div>
       </HeaderContianer>
     </div>

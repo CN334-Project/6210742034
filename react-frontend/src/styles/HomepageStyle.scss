@@ -1,0 +1,46 @@
+.profile-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 7px solid grey;
+  height: 380px;
+  width: 380px;
+  margin: 0 0px 0 100px;
+}
+
+.profile-picture-background {
+  height: 92%;
+  width: 92%;
+  background-image: url("../assets/image0.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+}
+
+.skills-container {
+  background-color: #030303;
+  padding: 2rem;
+  h2 {
+    padding-bottom: 3rem;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  a {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+  }
+  h1 {
+    padding-bottom: 3rem;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+.text-skills {
+  padding-top: 2rem;
+}
