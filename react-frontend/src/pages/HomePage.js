@@ -29,8 +29,10 @@ export default function HomePage() {
 
   return (
     <Body height={"auto"}>
+      <a className="anchor" id="Home"></a>
       <IndexPage />
       <HeaderContianer hg="auto" pb="5rem">
+      <a className="anchor" id="About"></a>
         <Grid columns="1fr 1fr">
           <Container>
             <div style={{ alignItems: "self-end", alignSelf: "end" }}>
@@ -84,7 +86,7 @@ export default function HomePage() {
               width={100}
               height={100}
               src={require("../assets/laravel.png")}
-              style={{margin: "auto"}}
+              style={{ margin: "auto" }}
             />
             <div className="text-skills">
               <h1>Laravel</h1>
@@ -99,12 +101,14 @@ export default function HomePage() {
             <div className="text-skills">
               <h1>Angular</h1>
             </div>
-            
           </Container>
         </Grid>
       </div>
+      <a className="anchor" id="Education"></a>
       <Education />
+      <a className="anchor" id="Project"></a>
       <ProjectExpreience />
+      <a className="anchor" id="Contract"></a>
       <Contract />
     </Body>
   );

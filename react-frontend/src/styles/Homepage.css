@@ -49,3 +49,7 @@
   filter: blur(30px);
   z-index: -1;
 }
+a {
+  color: white;
+  text-decoration: none !important;
+}

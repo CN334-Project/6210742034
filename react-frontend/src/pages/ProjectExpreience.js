@@ -24,8 +24,8 @@ const ProjectExpreience = () => {
               <h1>Todolist Applciaiton</h1>
             </div>
             <Grid columns="1fr 1fr">
-              <button class="button button2">Github</button>
-              <button class="button button2">View More</button>
+              <button className="button button2">Github</button>
+              <button className="button button2">View More</button>
             </Grid>
           </div>
 
@@ -42,8 +42,8 @@ const ProjectExpreience = () => {
               <h1>COVID-19 Website</h1>
             </div>
             <Grid columns="1fr 1fr">
-              <button class="button button2">Github</button>
-              <button class="button button2">View More</button>
+              <button className="button button2">Github</button>
+              <button className="button button2">View More</button>
             </Grid>
           </div>
 
@@ -60,8 +60,8 @@ const ProjectExpreience = () => {
               <h1>KruChaNa Application</h1>
             </div>
             <Grid columns="1fr 1fr">
-              <button class="button button2">Github</button>
-              <button class="button button2">View More</button>
+              <button className="button button2">Github</button>
+              <button className="button button2">View More</button>
             </Grid>
           </div>
 
@@ -78,8 +78,8 @@ const ProjectExpreience = () => {
               <h1>Face Recognition Website</h1>
             </div>
             <Grid columns="1fr 1fr">
-              <button class="button button2">Github</button>
-              <button class="button button2">View More</button>
+              <button className="button button2" onClick={window.open("https://github.com/Manusea/AIFaceRecognition-Website")}>Github</button>
+              <button className="button button2">View More</button>
             </Grid>
           </div>
 
