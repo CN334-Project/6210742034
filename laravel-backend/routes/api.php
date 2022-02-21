@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\EducationController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,11 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', [UserController::class,'register']);
-Route::post('login', [UserController::class,'login']);
+Route::post('register', [AuthController::class,'register']);
+Route::post('login', [AuthController::class,'login']);
 
-// Route::get('education/{educationid}', [EducationController::class,'show']);
-// Route::post('addEducations', [EducationController::class,'store']);
-// Route::get('Alleducation', [EducationController::class,'index']);
+Route::middleware('auth:sanctum')->group(function() {
+    Route::get('user', [AuthController::class,'user']);
+    Route::post('logout', [AuthController::class,'logout']);
+});
 
 Route::resource('educations', 'App\Http\Controllers\API\EducationController');
