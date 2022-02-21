@@ -6,7 +6,7 @@ import "../styles/Button.scss";
 
 const ProjectExpreience = () => {
   return (
-    <div className="education">
+    <div className="">
       <HeaderContianer>
         <div className="education-content">
           <h2>Project Expreience</h2>
@@ -15,8 +15,8 @@ const ProjectExpreience = () => {
           <div className="cards">
             <div className="cards-media">
               <img
-                width={250}
-                height={250}
+                width={238.5}
+                height={238.5}
                 src={require("../assets/LOGO.png")}
               />
             </div>
