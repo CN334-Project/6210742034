@@ -16,7 +16,6 @@ import { useState } from "react";
 
 import { useSelector } from "react-redux";
 import { Redirect, useNavigate } from "react-router-dom";
-import { applyMiddleware } from "redux";
 
 function Copyright(props) {
   return (
@@ -57,21 +56,23 @@ export default function SignIn() {
 
   const navigate = useNavigate();
 
-  const signIn = e => {
-    e.preventDefault()
+  async function login() {
+    console.log(username, password);
+    let item = { username, password };
+    let res = await fetch("http://127.0.0.1:8000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "applicaiton/json",
+        Accept: "applicaiton/json",
+      },
+      body: JSON.stringify(item),
+    });
+    res = await res.json();
+    
+    localStorage.setItem("user-info",JSON.stringify(res))
+    navigate('/dashboard');
+    
 
-    axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(() => {
-      axios.post('http://127.0.0.1:8000/login', {
-        username: username,
-        password: password
-      }).then(res => {
-        if(res.data.error) {
-          console.log(res.data.error)
-        } else {
-          console.log('sucess');
-        }
-      })
-    })
   }
 
   return (
@@ -120,7 +121,7 @@ export default function SignIn() {
               label="Remember me"
             />
             <Button
-              onClick={signIn}
+              onClick={handleLogin}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
