@@ -14,23 +14,24 @@ import SideBar from "./components/SideBar";
 import HeaderEdit from "./pages/Dashboard/HeaderEdit";
 import Layout from "./pages/Dashboard/Layout";
 import EducationCRUD from "./pages/Dashboard/Education/EducationCRUD";
-
 import { useDispatch } from "react-redux";
-import {fetchAsyncEducations} from "./redux/educations/educationSlice"
+import { fetchAsyncEducations } from "./redux/educations/educationSlice";
 import AddEducation from "./pages/Dashboard/Education/AddEducation";
 import EditEducations from "./pages/Dashboard/Education/EditEducations";
-
+import { AuthContextProvider } from "./auth/AuthContext";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 function App() {
-
   return (
     <>
       <Router>
-        <Routes>
-          <Route path="*" element={<Home />} />
-          <Route path="login/*" element={<Login />} />
-          <Route path="dashboard/*" element={<Dashboard />} />
-        </Routes>
+        <AuthContextProvider>
+          <Routes>
+            <Route path="*" element={<Home />} />
+            <Route path="login/*" element={<Login />} />
+            <Route path="dashboard/*" element={<Dashboard />} />
+          </Routes>
+        </AuthContextProvider>
       </Router>
     </>
   );
@@ -49,11 +50,9 @@ function Home() {
 
 function Login() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+    </Routes>
   );
 }
 
@@ -61,7 +60,15 @@ function Dashboard() {
   return (
     <div>
       <Routes>
-        <Route path="/" exact element={<DashboardPage />} />
+        <Route
+          path="/"
+          exact
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/header" element={<HeaderEdit />} />
         <Route path="/addEducation" element={<AddEducation />} />
         <Route path="/editEducation/:id" element={<EditEducations />} />

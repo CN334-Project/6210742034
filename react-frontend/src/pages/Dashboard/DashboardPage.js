@@ -8,12 +8,23 @@ import "../../styles/Dashboard.scss";
 import { useDispatch } from "react-redux";
 import { fetchAsyncEducations } from "../../redux/educations/educationSlice";
 import EducationCRUD from "./Education/EducationCRUD";
+import { useAuth } from "../../auth/AuthContext";
 export default function DashboardPage() {
   const dispatch = useDispatch();
+  const { logOut } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchAsyncEducations());
   }, [dispatch]);
+
   return (
     <Body height="100vh">
       <DashboardContainer>
@@ -24,6 +35,10 @@ export default function DashboardPage() {
         <div className="education-wrapper">
           <EducationCRUD />
         </div>
+
+        <button className="loginBtn" onClick={handleLogout}>
+          Logout
+        </button>
       </DashboardContainer>
     </Body>
   );

@@ -15,7 +15,9 @@ import axios from "axios";
 import { useState } from "react";
 
 import { useSelector } from "react-redux";
-import { Redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
+import { Alert } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -38,47 +40,30 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleLogin = () => {
-
-    axios.post("http://127.0.0.1:8000/api/login", {
-      username: username,
-      password: password
-    }).then(res => {
-      console.log('res: ',res);
-    }).catch(err => {
-      console.error('err: ', err);
-    })
-
-  };
-
+  const { logIn } = useAuth();
+  const [error, setError] = useState("")
   const navigate = useNavigate();
 
-  async function login() {
-    console.log(username, password);
-    let item = { username, password };
-    let res = await fetch("http://127.0.0.1:8000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "applicaiton/json",
-        Accept: "applicaiton/json",
-      },
-      body: JSON.stringify(item),
-    });
-    res = await res.json();
-    
-    localStorage.setItem("user-info",JSON.stringify(res))
-    navigate('/dashboard');
-    
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
 
-  }
+    try {
+      await logIn(email, password);
+      navigate("/dashboard");
+      
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        {error && <Alert variant="danger">{error}</Alert>}
         <Box
           sx={{
             marginTop: 8,
@@ -93,16 +78,21 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            noValidate
+            sx={{ mt: 1 }}
+            onSubmit={handleLogin}
+          >
             <TextField
               margin="normal"
               required
               fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              onChange={(e) => setUsername(e.target.value)}
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              onChange={(e) => setEmail(e.target.value)}
               autoFocus
             />
             <TextField
@@ -121,7 +111,7 @@ export default function SignIn() {
               label="Remember me"
             />
             <Button
-              onClick={handleLogin}
+              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
