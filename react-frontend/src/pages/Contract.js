@@ -1,38 +1,30 @@
 import React from "react";
-import { Container, Grid, HeaderContianer } from "../styles/Homepage.style";
-import { TextField } from "@mui/material";
-import { HiMail } from "react-icons/hi";
-import { ImLinkedin } from "react-icons/im";
-import { BsFillTelephoneFill } from "react-icons/bs";
+import { Body, HeaderContianer } from "../styles/Homepage.style";
+import { Toolbar, Grid } from "@mui/material";
+
 const Contract = () => {
   return (
-    <div className="contract">
-      <div className="skills-container">
+    <>
+      <Toolbar />
+      <Body height="100vh">
+        <div className="page-title">
+          <h1 className="text-white">Contract</h1>
+        </div>
+
         <HeaderContianer>
-          <h2>Contract</h2>
-          <Grid columns="1fr 1fr 1fr">
-            <Container>
-              <h1>
-                <HiMail color="white" size={50} style={{marginRight:"10px"}} />
-                chanantaphon.cha@gmail.com
-              </h1>
-            </Container>
-            <Container>
-              <h1>
-                <ImLinkedin size={40} color="white" style={{marginRight:"10px"}} />
-                chanantaphon
-              </h1>
-            </Container>
-            <Container>
-            <h1>
-                <BsFillTelephoneFill color="white" size={50}  style={{marginRight:"10px"}}/>
-                +66 955033632
-              </h1>
-            </Container>
+          <Grid item xs={12}>
+            <Grid container justifyContent={"center"}>
+              <Grid item>
+                <div className="contract-content">Hi</div>
+              </Grid>
+              <Grid item>
+                <div className="contract-content">Hi</div>
+              </Grid>
+            </Grid>
           </Grid>
         </HeaderContianer>
-      </div>
-    </div>
+      </Body>
+    </>
   );
 };
 

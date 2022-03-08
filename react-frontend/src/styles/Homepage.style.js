@@ -21,6 +21,13 @@ export const Grid = styled.div`
   grid-gap: ${(props) => props.gap};
 `;
 
+export const GridProject = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-around;
+  grid-gap: ${(props) => props.gap};
+`;
+
 export const Image = styled.img`
   width: 100%;
   height: ${(props) => props.h};
@@ -35,6 +42,7 @@ export const Container = styled.div`
   position: relative;
   margin: ${(props) => props.margin};
   padding-left: ${(props) => props.pd};
+  padding-top: ${(props) => props.pt};
   align-items: center;
   align-self: center;
 `;

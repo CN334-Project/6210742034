@@ -20,6 +20,7 @@ import AddEducation from "./pages/Dashboard/Education/AddEducation";
 import EditEducations from "./pages/Dashboard/Education/EditEducations";
 import { AuthContextProvider } from "./auth/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import Contract from "./pages/Contract";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function Home() {
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/contract" element={<Contract />} />
       </Routes>
     </div>
   );

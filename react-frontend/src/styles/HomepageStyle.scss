@@ -33,9 +33,9 @@ a {
   background-color: #1f1f2c;
   padding: 2rem;
   h2 {
-    padding-bottom: 3rem;
+    padding-bottom: 3.5rem;
     color: white;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     text-align: center;
   }
@@ -45,7 +45,6 @@ a {
     text-align: center;
   }
   h1 {
-    padding-bottom: 3rem;
     color: white;
     font-size: 2rem;
     text-align: center;
@@ -74,7 +73,7 @@ a {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 3rem;
+  font-size: 3.5rem;
   
 }
 
@@ -82,4 +81,25 @@ a {
   to {
     background-position: 200% center;
   }
+}
+
+#footer {
+  padding: 2rem;
+  background-color: #010003;
+}
+
+.page-title {
+  background-color: #1f1f2c;
+  border-bottom: 5px solid #343444;
+  border-top: 10px solid #343444;
+  padding: 3.5rem 3.5rem 3.5rem 5rem;
+  h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+}
+.contract-content {
+  
 }

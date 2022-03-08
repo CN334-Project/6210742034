@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllEducations } from "../redux/educations/educationSlice";
 import EducationCard from "../components/EducationCard";
 import HomeEducationCard from "../components/HomeEducationCard";
+import { Grid } from "@mui/material";
 
 export default function Education() {
   const educations = useSelector(getAllEducations);
@@ -22,7 +23,12 @@ export default function Education() {
         <div className="education-content">
           <h2>Education</h2>
           <div>
-            <div className="education-container">{renderEducations}</div>
+            <Grid item xs={12}>
+              <Grid container justifyContent={"center"} spacing={8} direction="row">
+                {renderEducations}
+              </Grid>
+            </Grid>
+            {/* <div className="education-container">{renderEducations}</div> */}
           </div>
         </div>
       </HeaderContianer>

@@ -12,9 +12,38 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "../styles/Homepage.css"
+import { Link } from "react-router-dom";
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
+import PropTypes from 'prop-types';
 
 const pages = ["Home", "About", "Education", "Project", "Contract"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -100,31 +129,31 @@ const ResponsiveAppBar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <a href="#Home" className="text-white">Home</a>
+              <div onClick={(e) => {e.preventDefault(); window.location.replace('/#Home');}}>Home</div>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <a href="#About" className="text-white">About</a>
+              <div onClick={(e) => {e.preventDefault(); window.location.replace('/#About');}}>About</div>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <a href="#Education" className="text-white">Education</a>
+              <div onClick={(e) => {e.preventDefault(); window.location.replace('/#Education');}}>Education</div>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <a href="#Project" className="text-white">Project</a>
+              <div onClick={(e) => {e.preventDefault(); window.location.replace('/#Project');}}>Project</div>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              <a href="#Contract" className="text-white">Contract</a>
+              <Link to={'/contract'} className="text-white">Contract</Link>
             </Button>
 
           </Box>
