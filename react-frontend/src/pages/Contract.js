@@ -3,6 +3,9 @@ import { Body, HeaderContianer } from "../styles/Homepage.style";
 import { Toolbar, Grid, Box, TextField } from "@mui/material";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Footer from "./Footer";
+import { useDispatch } from "react-redux";
+import { addContract } from "../redux/contracts/contractSlice";
+
 
 const Contract = () => {
   const [state, setState] = useState({
@@ -21,6 +24,23 @@ const Contract = () => {
     let { name, value } = e.target;
     setState({ ...state, [name]: value });
   };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      !subject ||
+      !fullname ||
+      !email ||
+      !phonenumber ||
+      !message 
+    ) {
+      setError("Please insert data");
+    } else {
+      dispatch(addContract(state));
+    }
+  }
 
   return (
     <>
@@ -75,6 +95,7 @@ const Contract = () => {
                         backgroundColor: "#1f1f2c",
                         borderRadius: 2,
                         fontFamily: "Prompt",
+                        color: "white",
 
                         "&.Mui-focused": {
                           boxShadow: "rgba(111, 76, 255, 0.5) 0px 0px 20px 0px",
@@ -89,6 +110,7 @@ const Contract = () => {
                       <TextField
                         id="filled-search"
                         label="Subject"
+                        name="subject"
                         type="text"
                         variant="filled"
                         style={{ width: "20rem" }}
@@ -98,6 +120,7 @@ const Contract = () => {
                       <TextField
                         id="filled-search"
                         label="Fullname"
+                        name="fullname"
                         type="text"
                         variant="filled"
                         style={{ width: "20rem" }}
@@ -109,6 +132,7 @@ const Contract = () => {
                       <TextField
                         id="filled-search"
                         label="Email"
+                        name="email"
                         type="email"
                         variant="filled"
                         style={{ width: "20rem" }}
@@ -118,6 +142,7 @@ const Contract = () => {
                       <TextField
                         id="filled-search"
                         label="Phone Number"
+                        name="phonenumber"
                         type="text"
                         variant="filled"
                         style={{ width: "20rem" }}
@@ -129,9 +154,9 @@ const Contract = () => {
                       <TextField
                         id="filled-multiline-static"
                         label="Message"
+                        name="message"
                         multiline
                         rows={4}
-                        defaultValue="Default Value"
                         variant="filled"
                         fullWidth
                         inputProps={{
@@ -142,7 +167,7 @@ const Contract = () => {
                       />
                     </div>
                   </Box>
-                  <button className="loginBtn" style={{ marginTop: "3rem" }}>
+                  <button className="loginBtn" style={{ marginTop: "3rem" }} onClick={handleSubmit}>
                     Send Message
                   </button>
                 </div>

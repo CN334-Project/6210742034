@@ -82,8 +82,8 @@ const Footer = () => {
       </Grid>
 
       <Container textAlign="center" pt="1.5rem">
-        <div class="copyright text-white py-1">&copy; Copyright. All Rights Reserved</div>
-        <div class="credits text-white">
+        <div className="copyright text-white py-1">&copy; Copyright. All Rights Reserved</div>
+        <div className="credits text-white">
           by <a>Chanantaphon Chansuksri</a>
         </div>
       </Container>
