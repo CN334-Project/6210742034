@@ -28,3 +28,4 @@ Route::post('login', [UserController::class,'login']);
 // Route::get('Alleducation', [EducationController::class,'index']);
 
 Route::resource('educations', 'App\Http\Controllers\API\EducationController');
+Route::resource('contracts', 'App\Http\Controllers\API\ContractController');

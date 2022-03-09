@@ -59,9 +59,10 @@ export default function AddEducation() {
               }}
               noValidate
               autoComplete="off"
+              bgcolor="primary.main"
             >
               <TextField
-                id="outlined-textarea"
+                id="filled-textarea"
                 label="University Name"
                 name="university_name"
                 value={university_name}
