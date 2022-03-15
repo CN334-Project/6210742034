@@ -39,7 +39,18 @@ const Contract = () => {
       setError("Please insert data");
     } else {
       dispatch(addContract(state));
+      setState({
+        subject: "",
+        fullname: "",
+        email: "",
+        phonenumber: "",
+        message: "",
+      });
     }
+  }
+
+  const validate = () => {
+    
   }
 
   return (
@@ -115,7 +126,11 @@ const Contract = () => {
                         variant="filled"
                         style={{ width: "20rem" }}
                         value={subject}
+                        InputLabelProps={{
+                          style: { color: '#fff' },
+                        }}
                         onChange={handleInputChange}
+                        helperText="error."
                       />
                       <TextField
                         id="filled-search"
@@ -126,6 +141,10 @@ const Contract = () => {
                         style={{ width: "20rem" }}
                         value={fullname}
                         onChange={handleInputChange}
+                        InputLabelProps={{
+                          style: { color: '#fff' },
+                        }}
+                        helperText="error."
                       />
                     </div>
                     <div>
@@ -138,6 +157,10 @@ const Contract = () => {
                         style={{ width: "20rem" }}
                         value={email}
                         onChange={handleInputChange}
+                        InputLabelProps={{
+                          style: { color: '#fff' },
+                        }}
+                        helperText="error."
                       />
                       <TextField
                         id="filled-search"
@@ -148,6 +171,10 @@ const Contract = () => {
                         style={{ width: "20rem" }}
                         value={phonenumber}
                         onChange={handleInputChange}
+                        InputLabelProps={{
+                          style: { color: '#fff' },
+                        }}
+                        helperText="error."
                       />
                     </div>
                     <div>
@@ -164,6 +191,10 @@ const Contract = () => {
                         }}
                         value={message}
                         onChange={handleInputChange}
+                        InputLabelProps={{
+                          style: { color: '#fff' },
+                        }}
+                        helperText="error."
                       />
                     </div>
                   </Box>

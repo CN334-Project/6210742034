@@ -5,7 +5,7 @@ import {
   HeaderContianer,
   Paragraph,
   Text,
-  Grid
+  Grid,
 } from "../styles/Homepage.style";
 import useWindowDimensions from "../components/useWindowDimensions";
 import Education from "./Education";
@@ -95,7 +95,11 @@ export default function HomePage() {
                 reliable. Perform Open-minded for extremely skills that should
                 be improved my potential skill to apply in organization
               </Paragraph>
-              <a href={MyResume} download="CV_Chanantaphon_Chanuksri" target="_blank">
+              <a
+                href={MyResume}
+                download="CV_Chanantaphon_Chanuksri"
+                target="_blank"
+              >
                 <button className="loginBtn">Download CV</button>
               </a>
             </div>
